@@ -1,4 +1,0 @@
-[2016-11-22 21:06:38.804][info ][command:null][tid:01][com.facebook.buck.cli.HangMonitor] HangMonitorAutoStart
-[2016-11-22 21:06:39.200][debug][command:null][tid:01][com.google.common.util.concurrent.ServiceManager] Starting HangMonitor [STARTING].
-[2016-11-22 21:06:39.201][debug][command:null][tid:10][com.google.common.util.concurrent.ServiceManager] Started HangMonitor [RUNNING] in 7.258 ms.
-[2016-11-22 21:06:41.194][debug][command:null][tid:01][com.facebook.buck.cli.Main] Rotating log.

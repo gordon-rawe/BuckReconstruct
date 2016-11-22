@@ -1,4 +1,0 @@
-InvocationInfo {"buildId":"6d513cbc-4474-4595-a26d-530b60e1563e","subCommand":"buildcommand","timestampMillis":1479821032254}
-ParseStarted {"timestamp":1479821042966,"buildTargets":[{"shortName":"mainlib","baseName":"//","flavor":""}]}
-ParseFinished {"timestamp":1479821042967,"buildTargets":[{"shortName":"mainlib","baseName":"//","flavor":""}]}
-ExitCode {"exitCode":1}

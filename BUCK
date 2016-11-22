@@ -1,5 +1,21 @@
 APP_CLASS_SOURCE = 'app/src/main/java/rawe/gordon/com/buckreconstruct/application/CustomApp.java'
 
+import re
+
+jar_deps = []
+for jarfile in glob(['app/libs/*.jar']):
+  name = 'jars__' + re.sub(r'^.*/([^/]+)\.jar$', r'\1', jarfile)
+  jar_deps.append(':' + name)
+  prebuilt_jar(
+    name = name,
+    binary_jar = jarfile,
+  )
+
+android_library(
+  name = 'alljars',
+  exported_deps = jar_deps,
+)
+
 android_library(
   name = 'onelib',
   srcs = glob(['one/src/**/*.java']),
@@ -20,7 +36,13 @@ android_resource(
   res = 'app/src/main/res',
   deps = [
     ':oneres',
+    ':appcompat'
   ]
+)
+
+android_build_config(
+  name = 'buildconfig',
+  package = 'rawe.gordon.com.buckreconstruct'
 )
 
 android_library(
@@ -29,7 +51,9 @@ android_library(
   deps = [
     ':onelib',
     ':appcompat',
-    ':mainres'
+    ':buildconfig',
+    ':mainres',
+    ':alljars'
   ]
 )
 
