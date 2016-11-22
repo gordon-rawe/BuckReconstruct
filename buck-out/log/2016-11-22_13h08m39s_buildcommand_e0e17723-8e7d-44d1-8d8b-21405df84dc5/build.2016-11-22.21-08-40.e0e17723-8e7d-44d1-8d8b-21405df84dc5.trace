@@ -1,0 +1,1 @@
+[{"cat":"buck","name":"process_name","ph":"M","pid":0,"tid":0,"ts":0,"tts":0,"args":{"name":"buck"}},{"cat":"buck","name":"build","ph":"B","pid":0,"tid":56,"ts":1182406374551,"tts":177618,"args":{"command_args":"one"}}

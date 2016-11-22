@@ -1,0 +1,109 @@
+[2016-11-22 21:06:37.083][info ][command:null][tid:01][com.facebook.buck.cli.HangMonitor] HangMonitorAutoStart
+[2016-11-22 21:06:39.209][debug][command:null][tid:01][com.google.common.util.concurrent.ServiceManager] Starting HangMonitor [STARTING].
+[2016-11-22 21:06:39.211][debug][command:null][tid:11][com.google.common.util.concurrent.ServiceManager] Started HangMonitor [RUNNING] in 8.551 ms.
+[2016-11-22 21:06:39.793][info ][command:null][tid:01][com.facebook.buck.cli.Main] enabling background process killing for buckd
+[2016-11-22 21:06:39.808][info ][command:null][tid:01][com.facebook.buck.cli.Main] enabled background process killing for buckd
+[2016-11-22 21:06:39.887][info ][command:null][tid:01][com.facebook.buck.cli.Main] initialized bg session killer
+[2016-11-22 21:06:39.928][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Waiting for first client to connect
+[2016-11-22 21:08:04.960][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Client connected
+[2016-11-22 21:08:04.960][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Waiting for first client to connect
+[2016-11-22 21:08:04.966][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Tearing down client socket
+[2016-11-22 21:08:04.967][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Flushing client socket
+[2016-11-22 21:08:04.968][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Client connected
+[2016-11-22 21:08:04.967][warn ][command:null][tid:18][com.martiansoftware.nailgun.NGInputStream] Nailgun client read future was interrupted
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at com.martiansoftware.nailgun.NGInputStream$1.run(NGInputStream.java:91)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:744)
+
+[2016-11-22 21:08:04.967][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Error shutting down socket I/O (this is expected if the client disconnected already)
+java.io.IOException: com.sun.jna.LastErrorException: [57] Socket is not connected
+	at com.martiansoftware.nailgun.NGUnixDomainSocket.doShutdown(NGUnixDomainSocket.java:74)
+	at com.martiansoftware.nailgun.NGUnixDomainSocket.shutdownInput(NGUnixDomainSocket.java:60)
+	at com.martiansoftware.nailgun.NGSession.run(NGSession.java:384)
+Caused by: com.sun.jna.LastErrorException: [57] Socket is not connected
+	at com.martiansoftware.nailgun.NGUnixDomainSocketLibrary.shutdown(Native Method)
+	at com.martiansoftware.nailgun.NGUnixDomainSocket.doShutdown(NGUnixDomainSocket.java:71)
+	... 2 more
+
+[2016-11-22 21:08:04.969][debug][command:null][tid:18][com.martiansoftware.nailgun.NGInputStream] Nailgun client read shutting down
+[2016-11-22 21:08:04.969][debug][command:null][tid:20][com.martiansoftware.nailgun.NGSession] Waiting for first client to connect
+[2016-11-22 21:08:04.969][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Closing client socket
+[2016-11-22 21:08:04.969][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Finished tearing down client socket
+[2016-11-22 21:08:04.970][debug][command:null][tid:16][com.martiansoftware.nailgun.NGSession] Waiting for next client to connect
+[2016-11-22 21:08:04.970][info ][command:null][tid:16][com.martiansoftware.nailgun.NGSession] NGSession shutting down
+[2016-11-22 21:08:04.970][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Tearing down client socket
+[2016-11-22 21:08:04.971][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Flushing client socket
+[2016-11-22 21:08:04.971][warn ][command:null][tid:21][com.martiansoftware.nailgun.NGInputStream] Nailgun client read future was interrupted
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at com.martiansoftware.nailgun.NGInputStream$1.run(NGInputStream.java:91)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:744)
+
+[2016-11-22 21:08:04.971][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Error shutting down socket I/O (this is expected if the client disconnected already)
+java.io.IOException: com.sun.jna.LastErrorException: [57] Socket is not connected
+	at com.martiansoftware.nailgun.NGUnixDomainSocket.doShutdown(NGUnixDomainSocket.java:74)
+	at com.martiansoftware.nailgun.NGUnixDomainSocket.shutdownInput(NGUnixDomainSocket.java:60)
+	at com.martiansoftware.nailgun.NGSession.run(NGSession.java:384)
+Caused by: com.sun.jna.LastErrorException: [57] Socket is not connected
+	at com.martiansoftware.nailgun.NGUnixDomainSocketLibrary.shutdown(Native Method)
+	at com.martiansoftware.nailgun.NGUnixDomainSocket.doShutdown(NGUnixDomainSocket.java:71)
+	... 2 more
+
+[2016-11-22 21:08:04.971][debug][command:null][tid:20][com.martiansoftware.nailgun.NGSession] Client connected
+[2016-11-22 21:08:04.971][debug][command:null][tid:21][com.martiansoftware.nailgun.NGInputStream] Nailgun client read shutting down
+[2016-11-22 21:08:04.971][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Closing client socket
+[2016-11-22 21:08:04.972][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Finished tearing down client socket
+[2016-11-22 21:08:04.972][debug][command:null][tid:17][com.martiansoftware.nailgun.NGSession] Waiting for next client to connect
+[2016-11-22 21:08:04.972][info ][command:null][tid:17][com.martiansoftware.nailgun.NGSession] NGSession shutting down
+[2016-11-22 21:08:04.972][debug][command:null][tid:23][com.martiansoftware.nailgun.NGSession] Waiting for first client to connect
+[2016-11-22 21:08:04.997][debug][command:null][tid:20][com.google.common.util.concurrent.ServiceManager] Starting DaemonSlayer [RUNNING].
+[2016-11-22 21:08:04.998][debug][command:null][tid:20][com.google.common.util.concurrent.ServiceManager] Started DaemonSlayer [RUNNING] in 3.944 ms.
+[2016-11-22 21:08:05.670][debug][command:null][tid:20][com.facebook.buck.cli.Main] Rotating log.
+[2016-11-22 21:08:05.678][debug][command:null][tid:20][com.facebook.buck.cli.Main] Starting up (build date 2016-11-18 08:25:11 +0800, rev 9d35784178499af6805135a8ca8dee4f9d13260f), args: [build, one]
+[2016-11-22 21:08:05.693][debug][command:null][tid:20][com.facebook.buck.cli.Main] System properties: {java.vendor=Oracle Corporation, sun.java.launcher=SUN_STANDARD, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, jnidispatch.path=/Users/gordon/Space/BuckReconstruct/.buckd/tmp/buck_run.Qj9RoX/jna--1240158087/jna2828350245888609020.tmp, os.name=Mac OS X, buck.enable_objc=true, sun.boot.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/classes, user.country.format=CN, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.8.0-b132, buck.path_to_intellij_py=/Users/gordon/softwares/buck/src/com/facebook/buck/command/intellij.py, jna.loaded=true, buck.testrunner_classes=/Users/gordon/softwares/buck/build/testrunner/classes, buck.logging_config_file=/Users/gordon/softwares/buck/config/logging.properties.st, buck.path_to_sh_binary_template=/Users/gordon/softwares/buck/src/com/facebook/buck/shell/sh_binary_template, user.name=gordon, buck.path_to_pywatchman=/Users/gordon/softwares/buck/third-party/py/pywatchman, buck.report_generator_jar=/Users/gordon/softwares/buck/build/report-generator.jar, buck.git_commit=9d35784178499af6805135a8ca8dee4f9d13260f, user.language=en, sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib, java.version=1.8.0, user.timezone=Asia/Shanghai, buck.test_util_no_tests_dir=true, sun.arch.data.model=64, java.endorsed.dirs=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/endorsed, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, file.encoding.pkg=sun.io, file.separator=/, java.specification.name=Java Platform API Specification, buck.jacoco_agent_jar=/Users/gordon/softwares/buck/third-party/java/jacoco/jacocoagent.jar, java.class.version=52.0, user.country=US, java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre, java.vm.info=mixed mode, os.version=10.11.6, buck.path_to_scandir_py=/Users/gordon/softwares/buck/third-party/py/scandir/scandir.py, buck.path_to_static_content=/Users/gordon/softwares/buck/webserver/static, buck.version_uid=9d35784178499af6805135a8ca8dee4f9d13260f, org.eclipse.jetty.util.log.class=org.eclipse.jetty.util.log.JavaUtilLog, buck.abi_processor_classes=/Users/gordon/softwares/buck/build/abi_processor/classes, path.separator=:, java.vm.version=25.0-b70, java.awt.printerjob=sun.lwawt.macosx.CPrinterJob, sun.io.unicode.encoding=UnicodeBig, awt.toolkit=sun.lwawt.macosx.LWCToolkit, buck.dx=/Users/gordon/softwares/buck/third-party/java/dx/etc/dx, buck.git_commit_timestamp=1479428711, user.home=/Users/gordon, buck.path_to_asm_jar=/Users/gordon/softwares/buck/third-party/java/asm/asm-debug-all-5.0.3.jar, java.specification.vendor=Oracle Corporation, buck.git_dirty=0, java.library.path=/Users/gordon/softwares/buck/third-party/java/ObjCBridge, java.vendor.url=http://java.oracle.com/, java.vm.vendor=Oracle Corporation, gopherProxySet=false, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=com.facebook.buck.cli.bootstrapper.ClassLoaderBootstrapper com.facebook.buck.cli.Main$DaemonBootstrap local:.buckd/sock 60000, java.class.path=/Users/gordon/softwares/buck/build/bootstrapper/bootstrapper.jar, buck.buckd_dir=/Users/gordon/Space/BuckReconstruct/.buckd, buck.path_to_pathlib_py=/Users/gordon/softwares/buck/third-party/py/pathlib/pathlib.py, buck.buckd_launch_time_nanos=1182404728890439, java.vm.specification.name=Java Virtual Machine Specification, com.martiansoftware.nailgun.NGServer.outputPath=/Users/gordon/Space/BuckReconstruct/.buckd/tmp/buck_run.Qj9RoX/ngserver-out, java.vm.specification.version=1.8, sun.cpu.endian=little, sun.os.patch.level=unknown, java.awt.headless=true, java.io.tmpdir=/Users/gordon/Space/BuckReconstruct/.buckd/tmp/buck_run.Qj9RoX, buck.android_agent_path=/Users/gordon/softwares/buck/assets/android/agent.apk, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, jna.platform.library.path=/usr/lib:/usr/lib, os.arch=x86_64, java.awt.graphicsenv=sun.awt.CGraphicsEnvironment, buck.path_to_pex=/Users/gordon/softwares/buck/src/com/facebook/buck/python/make_pex.py, java.ext.dirs=/Users/gordon/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java, java.util.logging.config.class=com.facebook.buck.cli.bootstrapper.LogConfig, user.dir=/Users/gordon/Space/BuckReconstruct, line.separator=
+, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, buck.native_exopackage_fake_path=/Users/gordon/softwares/buck/assets/android/native-exopackage-fakes.apk, file.encoding=UTF-8, java.specification.version=1.8}
+[2016-11-22 21:08:05.714][debug][command:null][tid:20][com.facebook.buck.config.Configs] Loading configuration for /Users/gordon/Space/BuckReconstruct
+[2016-11-22 21:08:05.745][debug][command:null][tid:20][com.facebook.buck.config.Configs] Loaded a configuration file /Users/gordon/Space/BuckReconstruct/.buckconfig: {alias={one=//:one-lib, res=//:one-res}, android={target=Google Inc.:Google APIs:23}}
+[2016-11-22 21:08:05.746][debug][command:null][tid:20][com.facebook.buck.config.Configs] Adding configuration overrides RawConfig{values={}}
+[2016-11-22 21:08:05.969][info ][command:null][tid:20][com.facebook.buck.io.Watchman] Creating for: [/Users/gordon/Space/BuckReconstruct]
+[2016-11-22 21:08:05.978][debug][command:null][tid:20][com.facebook.buck.io.ExecutableFinder] Executable 'watchman' mapped to 'Optional[/usr/local/bin/watchman]'
+[2016-11-22 21:08:06.017][debug][command:null][tid:20][com.facebook.buck.util.ListeningProcessExecutor] Launching process with params ProcessExecutorParams{command=[/usr/local/bin/watchman, --output-encoding=bser, get-sockname]}
+[2016-11-22 21:08:06.078][debug][command:null][tid:20][com.facebook.buck.util.ListeningProcessExecutor] Successfully launched process com.zaxxer.nuprocess.osx.OsxProcess@d0ea963
+[2016-11-22 21:08:06.078][debug][command:null][tid:20][com.facebook.buck.util.ListeningProcessExecutor] Waiting for process com.facebook.buck.util.ListeningProcessExecutor$LaunchedProcessImpl@21cf176b timeout 1000000000 NANOSECONDS
+[2016-11-22 21:08:07.084][debug][command:null][tid:20][com.facebook.buck.util.ListeningProcessExecutor] Wait for process returned -2147483648
+[2016-11-22 21:08:07.085][debug][command:null][tid:20][com.facebook.buck.util.ListeningProcessExecutor] Waiting for process com.facebook.buck.util.ListeningProcessExecutor$LaunchedProcessImpl@21cf176b timeout 43994223000 NANOSECONDS
+[2016-11-22 21:08:07.644][debug][command:null][tid:20][com.facebook.buck.util.ListeningProcessExecutor] Wait for process returned 0
+[2016-11-22 21:08:07.647][debug][command:null][tid:20][com.facebook.buck.io.Watchman] Waited 1566 ms for Watchman command get-sockname, exit code 0
+[2016-11-22 21:08:07.726][debug][command:null][tid:20][com.facebook.buck.io.Watchman] stdout of command: {version=4.4.0, sockname=/usr/local/Cellar/watchman/4.4.0/var/run/watchman/gordon-state/sock}
+[2016-11-22 21:08:07.726][info ][command:null][tid:20][com.facebook.buck.io.Watchman] Connecting to Watchman version 4.4.0 at /usr/local/Cellar/watchman/4.4.0/var/run/watchman/gordon-state/sock
+[2016-11-22 21:08:07.835][debug][command:null][tid:20][com.facebook.buck.io.Watchman] Connected to Watchman
+[2016-11-22 21:08:07.838][debug][command:null][tid:29][com.facebook.buck.io.WatchmanSocketClient] Sending query: [version, {required=[cmd-watch-project], optional=[term-dirname, cmd-watch-project, wildmatch, wildmatch_multislash, glob_generator, clock-sync-timeout]}]
+[2016-11-22 21:08:07.858][debug][command:null][tid:20][com.facebook.buck.io.WatchmanSocketClient] Query [version, {required=[cmd-watch-project], optional=[term-dirname, cmd-watch-project, wildmatch, wildmatch_multislash, glob_generator, clock-sync-timeout]}] returned in 20 ms
+[2016-11-22 21:08:07.859][info ][command:null][tid:20][com.facebook.buck.io.Watchman] Took 23 ms to query capabilities {term-dirname=DIRNAME, cmd-watch-project=SUPPORTS_PROJECT_WATCH, wildmatch=WILDMATCH_GLOB, wildmatch_multislash=WILDMATCH_MULTISLASH, glob_generator=GLOB_GENERATOR, clock-sync-timeout=CLOCK_SYNC_TIMEOUT}
+[2016-11-22 21:08:07.859][debug][command:null][tid:20][com.facebook.buck.io.Watchman] Got capabilities response: {term-dirname=true, cmd-watch-project=true, wildmatch=true, wildmatch_multislash=false, glob_generator=false, clock-sync-timeout=true}
+[2016-11-22 21:08:07.859][debug][command:null][tid:20][com.facebook.buck.io.Watchman] Got Watchman capabilities: [DIRNAME, SUPPORTS_PROJECT_WATCH, WILDMATCH_GLOB, CLOCK_SYNC_TIMEOUT]
+[2016-11-22 21:08:07.859][info ][command:null][tid:20][com.facebook.buck.io.Watchman] Adding watchman root: /Users/gordon/Space/BuckReconstruct
+[2016-11-22 21:08:07.860][debug][command:null][tid:29][com.facebook.buck.io.WatchmanSocketClient] Sending query: [watch-project, /Users/gordon/Space/BuckReconstruct]
+[2016-11-22 21:08:07.860][debug][command:null][tid:20][com.facebook.buck.io.WatchmanSocketClient] Query [watch-project, /Users/gordon/Space/BuckReconstruct] returned in 0 ms
+[2016-11-22 21:08:07.860][debug][command:null][tid:29][com.facebook.buck.io.WatchmanSocketClient] Sending query: [watch-project, /Users/gordon/Space/BuckReconstruct]
+[2016-11-22 21:08:07.861][debug][command:null][tid:20][com.facebook.buck.io.WatchmanSocketClient] Query [watch-project, /Users/gordon/Space/BuckReconstruct] returned in 0 ms
+[2016-11-22 21:08:07.861][info ][command:null][tid:20][com.facebook.buck.io.Watchman] Took 1 ms to add root /Users/gordon/Space/BuckReconstruct
+[2016-11-22 21:08:07.885][debug][command:null][tid:29][com.facebook.buck.io.WatchmanSocketClient] Sending query: [clock, /Users/gordon, {sync_timeout=100}]
+[2016-11-22 21:08:07.914][debug][command:null][tid:20][com.facebook.buck.io.WatchmanSocketClient] Query [clock, /Users/gordon, {sync_timeout=100}] returned in 29 ms
+[2016-11-22 21:08:07.915][info ][command:null][tid:20][com.facebook.buck.io.Watchman] Took 29 ms to query for initial clock id Optional[c:1478576384:796:2:12518]
+[2016-11-22 21:08:07.915][debug][command:null][tid:20][com.facebook.buck.cli.Main] Watchman capabilities: [DIRNAME, SUPPORTS_PROJECT_WATCH, WILDMATCH_GLOB, CLOCK_SYNC_TIMEOUT] Project watches: {/Users/gordon/Space/BuckReconstruct=ProjectWatch{watchRoot=/Users/gordon, projectPrefix=Space/BuckReconstruct}} Glob handler config: PYTHON Query timeout ms config: Optional.empty
+[2016-11-22 21:08:07.962][debug][command:null][tid:20][com.facebook.buck.cli.Main] Starting up daemon for project root [/Users/gordon/Space/BuckReconstruct]
+[2016-11-22 21:08:08.306][warn ][command:null][tid:20][com.facebook.buck.cli.Main] Can't start web server
+[2016-11-22 21:08:08.314][debug][command:null][tid:20][com.facebook.buck.cli.Main] Falling back to named cursors: {/Users/gordon/Space/BuckReconstruct=ProjectWatch{watchRoot=/Users/gordon, projectPrefix=Space/BuckReconstruct}}
+[2016-11-22 21:08:08.321][debug][command:null][tid:20][com.facebook.buck.cli.Main] Using Watchman Cursor: {/Users/gordon/Space/BuckReconstruct=n:buckdd70aef16-a7b4-451a-a743-fe8aba8f584d}
