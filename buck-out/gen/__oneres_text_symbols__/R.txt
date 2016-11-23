@@ -1,2 +1,0 @@
-int layout layout_naub 0x7f010001
-int string app_name 0x7f020001

@@ -1,5 +1,5 @@
 [alias]
-
+    gordon = //:gordon
 
 [android]
-    target = Google Inc.:Google APIs:19
+    target = Google Inc.:Google APIs:23

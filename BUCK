@@ -1,4 +1,4 @@
-APP_CLASS_SOURCE = 'app/src/main/java/rawe/gordon/com/buckreconstruct/application/CustomApp.java'
+APP_CLASS_SOURCE = 'app/src/main/java/rawe/gordon/com/buckreconstruct/application/DelegateApp.java'
 
 import re
 
@@ -20,7 +20,17 @@ android_library(
   name = 'onelib',
   srcs = glob(['one/src/**/*.java']),
   deps = [
-    ':oneres'
+    ':oneres',
+    ':onebuildconfig',
+    ':supportv4'
+  ]
+)
+
+android_build_config(
+  name = 'onebuildconfig',
+  package = 'rawe.gordon.com.one',
+  values = [
+     'String PARA_ONE = "false"'
   ]
 )
 
@@ -36,13 +46,17 @@ android_resource(
   res = 'app/src/main/res',
   deps = [
     ':oneres',
-    ':appcompat'
+    ':appcompat',
+    ':supportv4'
   ]
 )
 
 android_build_config(
   name = 'buildconfig',
-  package = 'rawe.gordon.com.buckreconstruct'
+  package = 'rawe.gordon.com.buckreconstruct',
+  values = [
+     'String PARA_TWO = "true"'
+  ]
 )
 
 android_library(
@@ -53,11 +67,69 @@ android_library(
     ':appcompat',
     ':buildconfig',
     ':mainres',
-    ':alljars'
+    ':alljars',
+    ':supportv4',
+    ':animated-drawable',
+    ':vector-drawable'
   ]
 )
 
 android_prebuilt_aar(
   name = 'appcompat',
-  aar = 'app/libs/appcompat-v7-19.1.0.aar'
+  aar = 'app/libs/appcompat-v7-23.3.0.aar'
+)
+
+android_prebuilt_aar(
+  name = 'supportv4',
+  aar = 'app/libs/support-v4-23.3.0.aar'
+)
+
+android_prebuilt_aar(
+  name = 'vector-drawable',
+  aar = 'app/libs/support-vector-drawable-23.3.0.aar'
+)
+
+android_prebuilt_aar(
+  name = 'animated-drawable',
+  aar = 'app/libs/animated-vector-drawable-23.3.0.aar'
+)
+
+android_manifest(
+  name = 'manifest',
+  skeleton = 'app/src/main/AndroidManifest.xml',
+  deps = [
+    ':mainlib'
+  ]
+)
+
+android_library(
+  name = 'applicationlib',
+  srcs = [APP_CLASS_SOURCE],
+  deps = [
+    ':buildconfig',
+    ':jars__buck-android-support'
+  ]
+)
+
+keystore(
+  name = 'keystore',
+  store = 'keystore/debug.keystore',
+  properties = 'keystore/debug.keystore.properties',
+)
+
+android_binary(
+  name = 'gordon',
+  manifest = ':manifest',
+  keystore = ':keystore',
+  use_split_dex = True,
+  exopackage = True,
+  primary_dex_patterns = [
+    '^rawe/gordon/com/buckreconstruct/application/DelegateApp^',
+    '^rawe/gordon/com/buckreconstruct/BuildConfig^',
+    '^com/facebook/buck/android/support/exopackage/'
+  ],
+  deps = [
+    ':mainlib',
+    ':applicationlib'
+  ]
 )
